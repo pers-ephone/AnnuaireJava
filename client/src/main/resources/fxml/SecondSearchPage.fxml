@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.amazingname.client.controller.SecondSearchPageController">
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="30"/>
+            </padding>
+            <Button text="←" onAction="#goBack"/>
+            <Label text="Lister les collaborateurs d'un site ou d'un service" style="-fx-font-size: 20px;"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <HBox spacing="5" alignment="CENTER_LEFT">
+                <Label text="Site"/>
+                <ComboBox fx:id="siteComboBox"/>
+                <Label text="Service"/>
+                <ComboBox fx:id="serviceComboBox"/>
+                <Button text="Chercher" onAction="#handleFilter"/>
+            </HBox>
+            <TableView fx:id="resultsTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+    </center>
+</BorderPane>

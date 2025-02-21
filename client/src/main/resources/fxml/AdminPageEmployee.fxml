@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.amazingname.client.controller.AdminPageEmployeeController">
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="30"/>
+            </padding>
+            <Button text="←" onAction="#goBack"/>
+            <Label text="Administration - Employés" style="-fx-font-size: 20px;"/>
+            <Button text="Gérer les Services" onAction="#goToAdminPageService"/>
+            <Button text="Gérer les Sites" onAction="#goToAdminPageSite"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <SplitPane dividerPositions="0.75" VBox.vgrow="ALWAYS">
+                <TableView fx:id="dataTable" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" onMouseClicked="#handleRowClick">
+                    <columns>
+                        <TableColumn fx:id="idColumn" text="ID"/>
+                        <TableColumn fx:id="firstNameColumn" text="Prénom"/>
+                        <TableColumn fx:id="lastNameColumn" text="Nom"/>
+                        <TableColumn fx:id="emailColumn" text="Email"/>
+                        <TableColumn fx:id="landlinePhoneColumn" text="Téléphone fixe"/>
+                        <TableColumn fx:id="mobilePhoneColumn" text="Téléphone mobile"/>
+                        <TableColumn fx:id="siteColumn" text="Site"/>
+                        <TableColumn fx:id="serviceColumn" text="Service"/>
+                    </columns>
+                </TableView>
+
+                <VBox spacing="10.0">
+                    <HBox.margin>
+                        <Insets top="15.0"/>
+                    </HBox.margin>
+
+                    <Label text="Prénom"/>
+                    <TextField fx:id="firstNameField" promptText="Prénom"/>
+
+                    <Label text="Nom"/>
+                    <TextField fx:id="lastNameField" promptText="Nom"/>
+
+                    <Label text="Email"/>
+                    <TextField fx:id="emailField" promptText="Email"/>
+
+                    <Label text="Téléphone fixe"/>
+                    <TextField fx:id="landlinePhoneField" promptText="Téléphone fixe"/>
+
+                    <Label text="Téléphone mobile"/>
+                    <TextField fx:id="mobilePhoneField" promptText="Téléphone mobile"/>
+
+                    <ComboBox fx:id="siteComboBox" promptText="Site"/>
+                    <ComboBox fx:id="serviceComboBox" promptText="Service"/>
+                    <Button fx:id="addButton" onAction="#addEmployee" text="Ajouter"/>
+                    <Button fx:id="saveButton" onAction="#saveEmployee" text="Sauvegarder" visible="false"/>
+                    <Button fx:id="deleteButton" onAction="#deleteEmployee" text="Supprimer" visible="false"/>
+                </VBox>
+            </SplitPane>
+
+        </VBox>
+
+    </center>
+</BorderPane>

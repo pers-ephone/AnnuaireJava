@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.amazingname.client.controller.AdminPageServiceController">
+    <top>
+        <HBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="30"/>
+            </padding>
+            <Button text="←" onAction="#goBack"/>
+            <Label text="Administration - Services" style="-fx-font-size: 20px;"/>
+            <Button text="Gérer les Employés" onAction="#goToAdminPageEmployee"/>
+            <Button text="Gérer les Sites" onAction="#goToAdminPageSite"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <SplitPane dividerPositions="0.75" VBox.vgrow="ALWAYS">
+                <TableView fx:id="dataTable" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" onMouseClicked="#handleRowClick">
+                    <columns>
+                        <TableColumn fx:id="idColumn" text="ID"/>
+                        <TableColumn fx:id="nameColumn" text="Nom"/>
+                    </columns>
+                </TableView>
+
+                <VBox spacing="10.0">
+                    <HBox.margin>
+                        <Insets top="15.0"/>
+                    </HBox.margin>
+
+                    <Label text="Nom"/>
+                    <TextField fx:id="nameField" promptText="Nom"/>
+
+                    <Button fx:id="addButton" onAction="#addService" text="Ajouter"/>
+                    <Button fx:id="saveButton" onAction="#saveService" text="Sauvegarder" visible="false"/>
+                    <Button fx:id="deleteButton" onAction="#deleteService" text="Supprimer" visible="false"/>
+                </VBox>
+            </SplitPane>
+
+        </VBox>
+
+    </center>
+</BorderPane>

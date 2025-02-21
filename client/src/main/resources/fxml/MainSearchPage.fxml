@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.amazingname.client.controller.MainSearchPageController" onKeyPressed="#handleKeyPressed">
+    <top>
+        <HBox spacing="50">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="30"/>
+            </padding>
+            <Label text="Trouver un collaborateur" style="-fx-font-size: 24px;" BorderPane.alignment="CENTER"/>
+            <Button text="Lister les collaborateurs d'un site ou d'un service" onAction="#goToSecondSearch" BorderPane.alignment="CENTER"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            <HBox spacing="5">
+                <TextField fx:id="searchField" promptText="Nom Prénom ou Email"/>
+                <Button text="Chercher" onAction="#handleSearch"/>
+            </HBox>
+
+            <Label fx:id="resultCountLabel"/>
+
+            <TableView fx:id="resultsTable" VBox.vgrow="ALWAYS"/>
+        </VBox>
+
+    </center>
+</BorderPane>
